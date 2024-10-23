@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Exit the script if no bucket name is provided
+if [ -z "$1" ]; then
+    echo "No bucket name provided"
+    exit 1
+fi
+
+# Exit the script if no path to the file is provided
+if [ -z "$2" ]; then
+    echo "No file path provided"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+FILE_PATH=$2
+
+ABSOLUTE_PATH=$(realpath "$FILE_PATH")
+
+# Extract file name from the file path
+FILE_NAME=$(basename "$ABSOLUTE_PATH")
+
+# Exit the script if the file doesn't exist
+if [ ! -f "$FILE_PATH" ]; then
+    echo "Error: File '$FILE_PATH' does not exist."
+    exit 1
+fi
+
+aws s3api put-object \
+--bucket "$BUCKET_NAME" \
+--key "$FILE_NAME" \
+--body "$ABSOLUTE_PATH"
