@@ -4,6 +4,7 @@ Resources:
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#aws-resource-s3-bucket--examples
   S3Bucket:
     Type: 'AWS::S3::Bucket'
+    # There are NO required properties for S3 CFN templates
     # Properties:
       # You don't need to supply a bucket name, CFN can generate one automatically
       # BucketName: DOC-EXAMPLE-BUCKET
