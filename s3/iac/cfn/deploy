@@ -18,4 +18,5 @@ fi
 aws cloudformation deploy \
 --template-file "$FILE_PATH" \
 --stack-name "$STACK_NAME" \
---region "eu-north-1"
+--region "eu-north-1" \
+--no-execute-changeset
