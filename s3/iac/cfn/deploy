@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Exit the script if no template file is provided
+if [ -z "$1" ]; then
+    echo "No template file provided"
+    exit 1
+fi
+
+FILE_PATH=$1
+STACK_NAME="cfn-s3-simple"
+
+# Exit the script if the file doesn't exist
+if [ ! -f "$FILE_PATH" ]; then
+    echo "Error: File '$FILE_PATH' does not exist."
+    exit 1
+fi
+
+aws cloudformation deploy \
+--template-file "$FILE_PATH" \
+--stack-name "$STACK_NAME" \
+--region "eu-north-1"
