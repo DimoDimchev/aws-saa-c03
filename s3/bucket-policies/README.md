@@ -1,6 +1,7 @@
 ## Overview
 Bucket policies define permissions for *an entire S3 bucket* using JSON-based policies.
 - **Bucket policies should be used over ACL's since they are much more flexible**
+- **Bucket policies look like [this](./policy.json)**
 
 ## Example using the AWS CLI
 ```sh
